@@ -1,0 +1,8 @@
+addon zoom version 1.0.0.0
+addon core version 4.107.0.0
+addon language version 4.106.1.0
+zoom.open chrome 
+zoom.login email ♥credential⟦zoom:login⟧ pword ♥credential⟦zoom:password⟧ search 
+zoom.setting search
+delay 5
+zoom.close 
