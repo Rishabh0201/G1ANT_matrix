@@ -1,0 +1,7 @@
+addon zomato version 1.0.0.0
+addon core version 4.107.0.0
+addon language version 4.106.1.0
+zomato.open chrome 
+zomato.orderfood locationvalue ‴Pimpri,Pune‴ foodvalue ‴Biryani‴ search 
+delay 5
+zomato.close 
