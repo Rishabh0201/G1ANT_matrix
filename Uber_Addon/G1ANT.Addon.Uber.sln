@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G1ANT.Addon.Uber", "G1ANT.Addon.Uber.csproj", "{0D3339A8-2813-4D56-B48F-4DD3034A0EBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D3339A8-2813-4D56-B48F-4DD3034A0EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3339A8-2813-4D56-B48F-4DD3034A0EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3339A8-2813-4D56-B48F-4DD3034A0EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3339A8-2813-4D56-B48F-4DD3034A0EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {896E9B9E-7EA1-40C7-94FC-A6556C6ABF65}
+	EndGlobalSection
+EndGlobal
