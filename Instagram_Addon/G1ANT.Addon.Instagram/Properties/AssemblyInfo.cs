@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("G1ANT.Addon.Instagram")]
+[assembly: AssemblyTitle("G1ANT.Addon.InstagramApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("G1ANT.Addon.Instagram")]
+[assembly: AssemblyProduct("G1ANT.Addon.InstagramApp")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5047c979-0ba4-4c00-bb57-4c95d003eed8")]
+[assembly: Guid("d9996126-9ceb-4f33-b3bc-b44cb644893d")]
 
 // Version information for an assembly consists of the following four values:
 //

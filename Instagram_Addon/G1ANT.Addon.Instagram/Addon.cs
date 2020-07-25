@@ -6,9 +6,9 @@ using G1ANT.Language;
 
 // Please remember to refresh G1ANT.Language.dll in references
 
-namespace G1ANT.Addon.Instagram
+namespace G1ANT.Addon.InstagramApp
 {
-    [Addon(Name = "instagram", Tooltip = "This Addon is used for instagram")]
+    [Addon(Name = "instagramapp", Tooltip = "This addon is use for the instagram.")]
     [Copyright(Author = "Company Ltd", Copyright = "Company Ltd", Email = "support@company.com", Website = "www.company.com")]
     [License(Type = "LGPL", ResourceName = "License.txt")]
     //[CommandGroup(Name = "", Tooltip = "")]
