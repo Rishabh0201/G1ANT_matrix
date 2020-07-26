@@ -1,0 +1,7 @@
+addon shaddi version 1.0.0.0
+addon core version 4.107.0.0
+addon language version 4.106.1.0
+shaddi.open chrome 
+shaddi.getapp search 
+shaddi.refresh 
+shaddi.close 
