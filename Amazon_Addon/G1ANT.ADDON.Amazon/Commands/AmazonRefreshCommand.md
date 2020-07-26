@@ -25,7 +25,7 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-The following script opens three websites in Chrome and refreshes the content of the currently active tab (the one that was opened last):
+The following script opens tab in Chrome and refreshes the content of the currently active tab (the one that was opened last):
 
 ```G1ANT
 amazon.open 
