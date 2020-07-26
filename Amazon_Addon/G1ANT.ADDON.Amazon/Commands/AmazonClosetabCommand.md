@@ -25,7 +25,7 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-In the following script the robot opens two tabs in Chrome, and after 5 seconds the current tab is closed.
+In the following script the robot opens Amazon tabs in Chrome, and after 5 seconds the current tab is closed.
 
 ```G1ANT
 amazon.open 
