@@ -23,7 +23,7 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 > **Note:** the `amazon.` commands require opening a browser with the `amazon.open` command first.
 
-# Example
+## Example
 
 In the following script the robot opens Amazon in Chrome, and after 5 seconds the browser is closed.
 
