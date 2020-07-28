@@ -27,7 +27,7 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-In the following example the browser waits until the first webpage is loaded, but then the robot opens OlaCab and immediately starts loading another Flipkart tab, because of the `nowait true` argument:
+In the following example the browser waits until the first webpage is loaded, but then the robot opens OlaCab and immediately starts loading another OlaCab tab, because of the `nowait true` argument:
 
 ```G1ANT
 olacab.open 
