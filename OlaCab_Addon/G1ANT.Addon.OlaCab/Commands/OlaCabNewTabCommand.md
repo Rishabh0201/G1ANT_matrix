@@ -23,7 +23,7 @@ This command adds a new tab of 'www.olacabs.com' in to the current browser.
 
 For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormessage` and `errorresult` arguments, see [Common Arguments](https://manual.g1ant.com/link/G1ANT.Manual/appendices/common-arguments.md) page.
 
-> **Note:** the `flipkart.` commands require opening a browser with the `flipkart.open` command first.
+> **Note:** the `olacab.` commands require opening a browser with the `olacab.open` command first.
 
 ## Example
 
