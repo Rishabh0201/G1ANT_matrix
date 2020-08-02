@@ -33,6 +33,6 @@ amazon.open
 delay 5
 amazon.login email xxxxxx Pass xxxx search
 delay 5
-amazon.wishlist "https://www.amazon.in/dp/B07XG2KHCN/ref=pc_mcnc_merchandised-search-17_?pf_rd_s=merchandised-search-17&pf_rd_t=Gateway&pf_rd_i=mobile&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_r=7JK4A5WAM0TJZT30M3CZ&pf_rd_p=c5ec7883-1957-496d-9c2f-e482a0221802"
+amazon.wishlist "https://www.amazon.in/dp/B07XG2KHCN/ref=pc_mcnc_merchandised-search-17_?pf_rd_s=merchandised-search-17&pf_rd_t=Gateway&pf_rd_i=mobile&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_r=7JK4A5WAM0TJZT30M3CZ&pf_rd_p=c5ec7883-1957-496d-9c2f-e482a0221802" search
 
 ```
