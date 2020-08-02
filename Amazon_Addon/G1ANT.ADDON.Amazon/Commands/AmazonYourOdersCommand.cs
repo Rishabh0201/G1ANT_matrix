@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G1ANT.Addon.amazon
 {
-    [Command(Name = "amazon.logout", Tooltip = "This command is use to closes a web browser in which amazon is opened")]
+    [Command(Name = "amazon.yourorders", Tooltip = "This command is use to see all orders on amazon web")]
     public class AmazonYourOrderCommand : Command
     {
         public class Arguments : SeleniumCommandArguments
