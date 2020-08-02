@@ -14,7 +14,7 @@ namespace G1ANT.Addon.amazon
         {
             [Argument(DefaultVariable = "timeoutselenium", Tooltip = "Specifies time in milliseconds for G1ANT.Robot to wait for the command to be executed")]
             public override TimeSpanStructure Timeout { get; set; } = new TimeSpanStructure(SeleniumSettings.SeleniumTimeout);
-             [Argument(Tooltip = "By default, waits until the webpage fully loads")]
+            [Argument(Tooltip = "By default, waits until the webpage fully loads")]
             public BooleanStructure NoWait { get; set; } = new BooleanStructure(false);
         }
         public AmazonYourOrderCommand(AbstractScripter scripter) : base(scripter)
