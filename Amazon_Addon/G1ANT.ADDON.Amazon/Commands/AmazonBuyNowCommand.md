@@ -7,7 +7,7 @@ amazon.buynow type ⟦url⟧ type ⟦pin⟧ type ⟦address⟧ type ⟦city⟧ t
 ```
 
 ## Description
-This command is used to add a product in a cart of Amazon.
+This command is used to buy a product in a Amazon.
 
 | Argument | Type | Required | Default Value | Description |
 | -------- | ---- | -------- | ------------- | ----------- |
