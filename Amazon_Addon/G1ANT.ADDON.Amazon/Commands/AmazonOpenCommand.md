@@ -3,7 +3,7 @@
 ## Syntax
 
 ```G1ANT
-amazon.open type ⟦text⟧ 
+amazon.open  
 ```
 
 ## Description
