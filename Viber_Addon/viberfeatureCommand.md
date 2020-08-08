@@ -20,7 +20,11 @@ This command is used to open viber feature page
 
 For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormessage` and `errorresult` arguments, see [Common Arguments](https://manual.g1ant.com/link/G1ANT.Manual/appendices/common-arguments.md) page.
 
-''' G1ANT
+## Example
+
+
+
+```G1ANT
 addon viber version 1.0.0.0
 viber.open search 
 viber.feature search
