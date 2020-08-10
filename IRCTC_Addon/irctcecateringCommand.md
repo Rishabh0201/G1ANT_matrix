@@ -27,5 +27,3 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 addon irctc version 1.0.0.0
 irctc.open search
 irctc.ecatering pnr ♥credential⟦irctc:pnr⟧ search
-
- 
