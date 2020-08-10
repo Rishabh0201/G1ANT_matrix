@@ -1,0 +1,11 @@
+addon twitterapp version 1.0.0.0
+addon core version 4.107.0.0
+addon language version 4.106.1.0
+twitterapp.open appactivity ‴com.twitter.app.main.MainActivity - Twitter‴ apppackage ‴com.twitter.android‴ automationname ‴UiAutomator2‴ devicename ‴Pixel 3 API 30‴ platformname ‴Android‴ platformversion ‴‴
+twitterapp.moment search  
+delay 5
+twitterapp.setting search 
+delay 5
+twitterapp.profile search 
+delay 10
+twitterapp.close 
