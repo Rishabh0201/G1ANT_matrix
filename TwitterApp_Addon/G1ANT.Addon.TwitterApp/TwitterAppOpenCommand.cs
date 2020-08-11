@@ -19,7 +19,7 @@ namespace G1ANT.Addon.TwitterApp
         public class Arguments : CommandArguments
         {
             [Argument(Required = true, Tooltip = "AppActivity")]
-            public TextStructure AppActivity { get; set; } = new TextStructure("com.twitter.app.main.MainActivity - Twitter");
+            public TextStructure AppActivity { get; set; } = new TextStructure("com.twitter.app.main.MainActivity");
 
             [Argument(Required = true, Tooltip = "App Package")]
             public TextStructure AppPackage { get; set; } = new TextStructure("com.twitter.android");
