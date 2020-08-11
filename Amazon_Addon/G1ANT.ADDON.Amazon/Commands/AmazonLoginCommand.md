@@ -11,7 +11,7 @@ This command opens amazon in a web browser provided in the Argument.
 
 | Argument | Type | Required | Default Value | Description |
 | -------- | ---- | -------- | ------------- | ----------- |
-|`phone`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes |  | Webpage address to load |
+|`phone`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes |  | Phone Numaber |
 |`pword`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes |  | Webpage address to load |
 |`nowait` | [bool](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/BooleanStructure.md) | no | false | By default, waits until the webpage fully loads |
 | `if`           | [bool](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/BooleanStructure.md) | no       | true                                                        | Executes the command only if a specified condition is true   |
@@ -27,11 +27,11 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-In the following example the browser waits until Amazon webpage is loaded, but then the robot opens Amazon and After 5 second starts login in Amazon acount using given credential:
+In the following example the browser waits until Amazon webpage is loaded, After 5 second starts login in Amazon acount using given credential:
 
 ```G1ANT
 amazon.open 
 delay 5
-amazon.login email xxxxxx Pass xxxx search
+amazon.login phone xxxxxx Pass xxxx search
 
 ```
