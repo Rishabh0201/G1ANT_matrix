@@ -27,7 +27,7 @@ namespace G1ANT.Addon.ZomatoApp
             public TextStructure AutomationName { get; set; } = new TextStructure("UiAutomator2");
 
             [Argument(Required = true, Tooltip = "Device Name")]
-            public TextStructure DeviceName { get; set; } = new TextStructure("Android");
+            public TextStructure DeviceName { get; set; } = new TextStructure("Pixel 3 API 30");
 
             [Argument(Required = true, Tooltip = "Platform Name")]
             public TextStructure PlatformName { get; set; } = new TextStructure("Android");
