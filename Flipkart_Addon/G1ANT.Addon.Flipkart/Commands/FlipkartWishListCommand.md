@@ -31,7 +31,7 @@ In the following example the browser waits until Flipkart webpage is loaded, and
 ```G1ANT
 flipkart.open 
 delay 5
-flipkart.login email xxxxxx Pass xxxx search
+flipkart.login phone xxxxxx Pass xxxx search
 delay 5
 flipkart.wishlist "https://www.flipkart.com/dragon-war-ele-g9-thor-wired-gaming-mouse/p/itmdtrev54tu7yfe?pid=ACCDTREV54TU7YFE&lid=LSTACCDTREV54TU7YFEJ8PSFR&marketplace=FLIPKART&srno=b_1_7&otracker=dynamic_omu_infinite_Gaming%2B_8_1.dealCard.OMU_INFINITE_Gaming%2B_7YOOF242I05J&fm=neo%2Fmerchandising&iid=49b347f5-a6cf-4ab5-94ce-eed2636824df.ACCDTREV54TU7YFE.SEARCH&ppt=browse&ppn=browse&ssid=jxkmus578g0000001596710095562" search
 
