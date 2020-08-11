@@ -1,0 +1,11 @@
+addon zomatoapp version 1.0.0.0
+addon core version 4.107.0.0
+addon language version 4.106.1.0
+zomatoapp.open appactivity ‴com.application.zomato.login.ZomatoActivity - Zomato‴ apppackage ‴com.application.zomato‴ automationname ‴UiAutomator2‴ devicename ‴Pixel 3 API 30‴ platformname ‴Android‴ platformversion ‴‴ 
+zomatoapp.login search
+delay 5 
+zomatoapp.dine search  
+delay 5
+zomatoapp.collection search 
+delay 10 
+zomatoapp.close 
