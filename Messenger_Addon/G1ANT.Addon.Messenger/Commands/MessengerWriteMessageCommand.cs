@@ -10,7 +10,7 @@ using OpenQA.Selenium;
 namespace G1ANT.Addon.Messenger
 {
 
-    [Command(Name = "messenger.writemessage", Tooltip = "This command is used to write message on messenger.")]
+    [Command(Name = "messenger.writemessage", Tooltip = "This command is used to write message to already opened friend on messenger.")]
     public class MessengerWriteMessageCommand : Command
     {
         public MessengerWriteMessageCommand(AbstractScripter scripter) : base(scripter)
