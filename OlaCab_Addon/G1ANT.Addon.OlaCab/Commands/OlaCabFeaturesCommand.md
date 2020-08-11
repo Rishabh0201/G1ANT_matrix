@@ -25,7 +25,7 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-In the following example the browser waits until Olacabs webpage is loaded, After 5 second click on features on Olacab:
+In the following example the browser waits until Olacab webpage is loaded, After 5 second click on features on Olacab:
 
 ```G1ANT
 olacab.open 
