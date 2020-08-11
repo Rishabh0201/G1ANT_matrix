@@ -11,11 +11,11 @@ This command is used to buy a product in a Amazon.
 
 | Argument | Type | Required | Default Value | Description |
 | -------- | ---- | -------- | ------------- | ----------- |
-|`url`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Webpage address to load |
-|`pin`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Webpage address to load |
-|`address`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Webpage address to load |
-|`city`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Webpage address to load |
-|`state`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Webpage address to load |
+|`url`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | URL of Product which you want to Buy |
+|`pin`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Type PIN |
+|`address`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Type Delivery Address |
+|`city`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Type Name of City |
+|`state`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes|  | Type Name of State |
 |`nowait` | [bool](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/BooleanStructure.md) | no | false | By default, waits until the webpage fully loads |
 | `if`           | [bool](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/BooleanStructure.md) | no       | true                                                        | Executes the command only if a specified condition is true   |
 | `timeout`      | [timespan](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TimeSpanStructure.md) | no       | [♥timeoutselenium](https://manual.g1ant.com/link/G1ANT.Addon.Selenium/G1ANT.Addon.Selenium/Variables/TimeoutSeleniumVariable.md) | Specifies time in milliseconds for G1ANT.Robot to wait for the command to be executed |
@@ -30,12 +30,12 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-In the following example the browser waits until Amazon webpage is loaded, but then the robot opens Amazon and After 5 second starts login in Amazon acount using given credential. open new amazon tab with your product and ready to order this product according to given place:
+In the following example the browser waits until Amazon webpage is loaded, 5 second starts login in Amazon acount using given credential. After 5 second open new amazon tab with your product and ready to order this product according to given place:
 
 ```G1ANT
 amazon.open 
 delay 5
-amazon.login email xxxxxx Pass xxxx search
+amazon.login phone xxxxxx Pass xxxx search
 delay 5
 amazon.buynow "https://www.amazon.in/dp/B07XG2KHCN/ref=pc_mcnc_merchandised-search-17_?pf_rd_s=merchandised-search-17&pf_rd_t=Gateway&pf_rd_i=mobile&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_r=7JK4A5WAM0TJZT30M3CZ&pf_rd_p=c5ec7883-1957-496d-9c2f-e482a0221802" pin xxx address xxx city xxx state xxx search
 
