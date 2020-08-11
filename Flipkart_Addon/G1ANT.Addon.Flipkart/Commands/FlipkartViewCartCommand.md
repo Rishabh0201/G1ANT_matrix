@@ -29,7 +29,7 @@ In the following example the browser waits until Flipkart webpage is loaded, Aft
 ```G1ANT
 flipkart.open 
 delay 5
-flipkart.login email xxxxxx Pass xxxx search
+flipkart.login phone xxxxxx Pass xxxx search
 delay 5
 flipkart.viewcart
 
