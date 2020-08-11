@@ -1,0 +1,9 @@
+addon mediumapp version 1.0.0.0
+addon core version 4.107.0.0
+addon language version 4.106.1.0
+mediumapp.open appactivity ‴com.medium.android.donkey.home.HomeActivity6‴ apppackage ‴com.medium.reader‴ automationname ‴UiAutomator2‴ devicename ‴Pixel 2 API 30‴ platformname ‴Android‴ platformversion ‴‴ 
+mediumapp.login text ‴credential[gmail:login]‴ search 
+delay 5
+mediumapp.setting search 
+delay 10
+mediumapp.close 
