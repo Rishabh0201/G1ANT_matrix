@@ -30,7 +30,7 @@ In the following example the browser waits until Amazon webpage is loaded, After
 ```G1ANT
 amazon.open 
 delay 5
-amazon.login email xxxxxx Pass xxxx search
+amazon.login phone xxxxxx Pass xxxx search
 delay 5
 amazon.yourorders 
 
