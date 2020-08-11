@@ -18,7 +18,7 @@ namespace G1ANT.Addon.ZomatoApp
         public class Arguments : CommandArguments
         {
             [Argument(Required = true, Tooltip = "AppActivity")]
-            public TextStructure AppActivity { get; set; } = new TextStructure("com.application.zomato.login.ZomatoActivity - Zomato");
+            public TextStructure AppActivity { get; set; } = new TextStructure("com.application.zomato.login.ZomatoActivity");
 
             [Argument(Required = true, Tooltip = "App Package")]
             public TextStructure AppPackage { get; set; } = new TextStructure("com.application.zomato");
