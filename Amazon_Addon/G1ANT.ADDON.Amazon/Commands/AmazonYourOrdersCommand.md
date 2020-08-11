@@ -25,7 +25,7 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-In the following example the browser waits until Amazon webpage is loaded, but then the robot opens Amazon and After 5 second starts login in Amazon acount using given credential. After that click on your order in Amazon:
+In the following example the browser waits until Amazon webpage is loaded, After 5 second starts login in Amazon acount using given credential. After that click on your order in Amazon:
 
 ```G1ANT
 amazon.open 
