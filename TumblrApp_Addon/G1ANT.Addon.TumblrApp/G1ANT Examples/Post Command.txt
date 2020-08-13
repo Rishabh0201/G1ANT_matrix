@@ -1,0 +1,9 @@
+addon tumblrapp version 1.0.0.0
+addon core version 4.107.0.0
+addon language version 4.106.1.0
+tumblrapp.open appactivity ‴com.tumblr.ui.activity.RootActivity‴ apppackage ‴com.tumblr‴ automationname ‴UiAutomator2‴ devicename ‴Pixel 3 API 30‴ platformname ‴Android‴ platformversion ‴‴ 
+tumblrapp.login text ♥credential⟦gmail:login⟧ search 
+delay 5
+tumblrapp.post text ‴Robot Process Automation- G1ANT‴ search
+delay 10
+tumblrapp.close 
