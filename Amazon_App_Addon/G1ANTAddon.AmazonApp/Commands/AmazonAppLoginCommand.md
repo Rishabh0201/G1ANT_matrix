@@ -33,5 +33,5 @@ This sample script opens Amazon app application, then login in it using given cr
 amazonapp.open 
 amazonapp.login email xxxxx pass xxxxx
 delay 3
-appium.close
+amazonapp.close
 ```
