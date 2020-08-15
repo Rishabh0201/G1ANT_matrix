@@ -21,9 +21,11 @@ This command logout from amazon app.
 
 For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormessage` and `errorresult` arguments, see [Common Arguments](https://manual.g1ant.com/link/G1ANT.Manual/appendices/common-arguments.md) page.
 
+> **Note:** the `amazonapp.` commands require opening a mobile app with the `amazonapp.open` command first.
+
 ## Example
 
-In this script, Amazon app is opened, the robot waits 5 seconds and then login in Amazon app after  that wait for 5 second and logout from the session:
+In this script, Amazon app is opened, the robot waits 5 seconds and then login in Amazon app using given credential. After that wait for 5 second and logout from the session:
 
 ```G1ANT
 amazonapp.open 
