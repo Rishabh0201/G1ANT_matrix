@@ -6,7 +6,7 @@ using OpenQA.Selenium.Remote;
 
 namespace G1ANT.Addon.AmazonApp
 {
-    [Command(Name = "amazonapp.wishlist", Tooltip = "This command helps you to show your oders in amazon app")]
+    [Command(Name = "amazonapp.wishlist", Tooltip = "This command helps you to show your wishlist in amazon app")]
     public class AmazonAppWishlistCommand : Language.Command
     {
         public class Arguments : CommandArguments
