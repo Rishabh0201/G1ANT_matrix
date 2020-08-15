@@ -1,0 +1,5 @@
+addon zoomapp version 1.0.0.0
+addon core version 4.107.0.0
+addon language version 4.106.1.0
+zoomapp.open appactivity ‴com.zipow.videobox.LauncherActivity‴ apppackage ‴us.zoom.videomeetings‴ automationname ‴UiAutomator2‴ devicename ‴Pixel 3 API 30‴ platformname ‴Android‴ platformversion ‴‴ 
+zoomapp.setting search 
