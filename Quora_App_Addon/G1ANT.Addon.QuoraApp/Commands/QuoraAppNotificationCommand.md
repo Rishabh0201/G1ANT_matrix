@@ -25,10 +25,12 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-In this script, Quora app is opened, the robot waits 5 seconds and then show all notification in Quora App:
+In this script, Quora app is opened, the robot waits 5 seconds and then login in it using given credential. After 5 seconds the robot show all notification in Quora App:
 
 ```G1ANT
 flipkartapp.open 
+delay 5
+quoraapp.login email xxxxx pass xxxxx
 delay 5
 quoraapp.notification
 ```
