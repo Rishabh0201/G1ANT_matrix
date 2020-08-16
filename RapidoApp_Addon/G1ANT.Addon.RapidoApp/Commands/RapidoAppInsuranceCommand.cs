@@ -6,7 +6,7 @@ using OpenQA.Selenium.Remote;
 
 namespace G1ANT.Addon.RapidoApp
 {
-    [Command(Name = "rapidoapp.insurance", Tooltip = "This command shows insurance")]
+    [Command(Name = "rapidoapp.insurance", Tooltip = "This command shows insurance in Rapido App.")]
     public class RapidoAppInsuranceCommand : Language.Command
     {
         public class Arguments : CommandArguments
