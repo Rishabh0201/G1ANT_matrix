@@ -26,7 +26,7 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ## Example
 
-In this example the `flipkartapp.open` command starts a new Appium session with Amazon application, Then open offer page of flipkartapp, then the `flipkartapp.backbutton` command emulates pressing of *Back* button, which closes the app, and the `flipkartappThen open offer page of flipkartapp, .close` command closes the session.
+In this example the `flipkartapp.open` command starts a new Appium session with Amazon application, Then open offer page of flipkartapp, then the `flipkartapp.backbutton` command emulates pressing of *Back* button, which closes the app, and then flipkartapp.close` command closes the session.
 
 ```G1ANT
 flipkartapp.open 
