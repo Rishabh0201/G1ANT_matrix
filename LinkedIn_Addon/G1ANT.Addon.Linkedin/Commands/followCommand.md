@@ -1,9 +1,9 @@
-# linkedin.follow
+# linked.follow
 
 ## Syntax
 
 ```G1ANT
-linkedin.follow searchvalue
+linked.follow searchvalue
 ```
 
 ## Description
@@ -24,6 +24,6 @@ For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormess
 
 ```G1ANT
 
-addon linkedin version 2.205.17304.1000
-linkedin.open type chrome 
-linkedin.follow searchvalue ‴G1ANT‴ search 
+linked.open type chrome 
+linked.login email ♥credential⟦linked:email⟧ pword ♥credential⟦linked:pword⟧ search
+linked.follow searchvalue ‴G1ANT‴ search 
