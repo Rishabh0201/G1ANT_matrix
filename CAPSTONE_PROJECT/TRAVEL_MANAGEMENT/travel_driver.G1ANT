@@ -1,0 +1,469 @@
+addon net version 4.103.0.0
+addon core version 4.106.0.0
+addon language version 4.105.0.0
+addon xlsx version 4.104.0.0
+addon travel version 1.0.0.0
+xlsx.open path ♥environment⟦USERPROFILE⟧\Desktop\travelling.xlsx result ♥xlsx1
+xlsx.getvalue row 2 colname c result ♥email
+xlsx.getvalue row 2 colname a result ♥firstname
+xlsx.getvalue row 2 colname b result ♥lastname
+xlsx.getvalue row 2 colname e result ♥gender
+xlsx.getvalue row 2 colname f result ♥age
+xlsx.getvalue row 2 colname g result ♥addline
+xlsx.getvalue row 2 colname h result ♥state
+xlsx.getvalue row 2 colname i result ♥pincode
+xlsx.getvalue row 2 colname j result ♥phonenumber
+xlsx.getvalue row 2 colname k result ♥from
+xlsx.getvalue row 2 colname l result ♥to
+xlsx.getvalue row 2 colname m result ♥city
+xlsx.getvalue row 2 colname n result ♥ocean
+xlsx.getvalue row 2 colname o result ♥pancard
+♥login = ♥credential⟦gmail:login⟧
+♥password = ♥credential⟦gmail:pass⟧
+dialog.ask message ‴Hello user, Which service you want to book (Flights,bus,Cab,Train,Cruise,Hotel)?‴ result ♥pre
+mail.imap host imap.gmail.com port 993 login ♥login password ♥password sincedate ♥date todate ♥date onlyunreadmessages true 
+
+mail.smtp imap.gmail.com login ♥login password ♥password from ♥login to ♥email subject ‴Preference‴ body ‴Hello, Please send your transport preference. Thank You‴ 
+
+ mail.smtp imap.gmail.com login ♥login password ♥password from ♥login to ♥login subject ♥pre body ♥pre 
+
+imap.getmails sincedate ♥date todate ♥date  onlyunreadmessages True result ♥result
+-dialog ♥list
+
+foreach ♥element in ♥result
+
+      xlsx.setvalue value ♥element row 2 colname d
+      
+end
+xlsx.getvalue row 2 colname d result ♥preference
+xlsx.close id ♥xlsx1
+delay 2
+xlsx.open path ♥environment⟦USERPROFILE⟧\Desktop\travelling.xlsx result ♥xlsx2
+xlsx.getvalue row 2 colname d result ♥preference
+
+delay 1
+dialog ♥preference
+
+if ♥preference=="Flights"
+    call name aeroplane
+else if ♥preference=="bus"
+    call name buses
+else if ♥preference=="Cab"
+    call name cabs
+else if ♥preference=="Train"
+    call name trains
+else if ♥preference=="Cruise"
+    call name cruises
+else if ♥preference=="Hotel"
+    call name hotels
+    end
+mail.smtp imap.gmail.com login ♥login password ♥password from ♥login to ♥email subject ‴BOOKING COMFIRMED‴ body ‴Thank You. Your book is comfirmed Have a safe journey :)‴
+procedure aeroplane
+    travel.flight from ♥from to ♥to firstname ♥firstname lastname ♥lastname search
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div[2]/div[1]/div[2]/label‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div[2]/div[1]/div[2]/div[1]/div/div/div/input‴ by xpath
+    keyboard  ♥to
+    delay 2
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div[2]/div[1]/div[1]/label‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div[2]/div[1]/div[1]/div[1]/div/div/div/input‴ by xpath
+    keyboard  ♥from
+    delay 2
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div[2]/p/a‴ by xpath
+    delay 5
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[3]/div/div[1]/div[1]/div[1]/div/div/div/div[4]/button‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[3]/div/div[1]/div[3]/div[1]/div[2]/div[2]/div[2]/button‴ by xpath
+
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div[1]/div[1]/div[5]/button‴ by xpath
+   - travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div[1]/div[1]/div[7]/p[3]/span[1]‴ by xpath
+    delay 5
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[1]/form/div[3]/div[2]/div/div/a‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[1]/form/div[3]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div/input‴ by xpath
+    keyboard ♥firstname
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[1]/form/div[3]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div/input‴ by xpath
+    keyboard ♥lastname
+
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[1]/form/div[3]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[3]/div/div/label[1]‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[1]/form/div[3]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div[1]/p‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[1]/form/div[4]/div/div/div[2]/div/input‴ by xpath
+    keyboard ♥phonenumber
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[1]/form/div[4]/div/div/div[3]/div/input‴ by xpath
+    keyboard ♥email
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div[1]/form/div[6]/div/div/button‴ by xpath
+    delay 2
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[3]/p[2]/a[2]‴ by xpath
+    delay 5
+    travel.click search ‴/html/body/div/div/div/div/div[5]/div[2]/p[5]/a‴ by xpath
+    delay 2
+    
+    travel.click search ‴/html/body/div/div/div/div/div[3]/div[2]/div/div/div[2]/div/div[10]/div[7]/div/div‴ by xpath
+    delay 2
+ 
+    travel.click search ‴/html/body/div/div/div/div/div[4]/div[2]/div[2]/div/a‴ by xpath
+    delay 5
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/ul/li[2]/a/span[2]‴ by xpath
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[1]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:number⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[3]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:name⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/span[1]/select‴ by xpath
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/span[2]/select‴ by xpath
+    keyboard ‴2023‴
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/div/span[1]/input‴ by xpath
+    keyboard ♥credential⟦card:cvv⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[1]/p[2]/select‴ by xpath
+    keyboard india
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[2]/p[2]/textarea‴ by xpath
+    keyboard ♥credential⟦card:add⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[1]/input‴ by xpath
+    keyboard ♥credential⟦card:city⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[2]/input‴ by xpath
+    keyboard ♥credential⟦card:pincode⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[3]/input‴ by xpath
+    keyboard ♥credential⟦card:state⟧
+   
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[16]/div[2]/p[1]/button[3]/span‴ by xpath
+    dialog message ‴Congratulations !!!! Your ticket from ♥from to ♥to is booked !! Happy and safe journey‴
+    
+    
+end
+procedure buses
+    delay 5
+    travel.bus from ♥from to ♥to firstname ♥firstname age ♥age email ♥email phnnumber ♥phonenumber search
+    delay 5
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/ul/li[2]/a/span[2]‴ by xpath
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[1]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:number⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[3]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:name⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/span[1]/select‴ by xpath
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search  ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/span[2]/select‴ by xpath
+    keyboard ‴2023‴
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/div/span[1]/input‴ by xpath
+    keyboard ♥credential⟦card:cvv⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[1]/p[2]/select‴ by xpath
+    keyboard india
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[2]/p[2]/textarea‴ by xpath
+    keyboard ♥credential⟦card:add⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[1]/input‴ by xpath
+    keyboard ♥credential⟦card:city⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[2]/input‴ by xpath
+    keyboard ♥credential⟦card:pincode⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[3]/input‴ by xpath
+    keyboard ♥credential⟦card:state⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[16]/div[2]/p[1]/button[3]/span‴ by xpath
+    dialog message ‴Congratulations !!!! Your ticket from ♥from to ♥to is booked !! Happy and safe journey‴
+    
+     
+    
+    
+    -travel.click search ‴‴
+end
+procedure cruises
+    travel.login email ♥credential⟦yatra:login⟧ pass ♥credential⟦yatra:pass⟧ search
+    delay 5
+    travel.cruise from ♥ocean  firstname ♥firstname age ♥age search
+    delay 10
+    travel.click search ‴/html/body/div[2]/div/section/div[1]/div/div[1]/section/div/div/div/ody-search-form/div/div/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]‴ by xpath
+    travel.click search ‴/html/body/div[2]/div/section/div[1]/div/div[1]/section/div/div/div/ody-search-form/div/div/div/div[2]/div/div/div/div[1]/div[2]/div/div[2]/input‴ by xpath
+    keyboard ♥ocean
+    keyboard ⋘ENTER⋙
+    delay 5
+    travel.click search ‴/html/body/div[2]/div/section/div[1]/div/div[1]/section/div/div/div/ody-search-form/div/div/div/div[2]/div/div/div/div[2]/div[2]‴ by xpath
+    travel.click search ‴/html/body/div[2]/div/section/div[1]/div/div[1]/section/div/div/div/ody-search-form/div/div/div/div[2]/div/div/div/div[2]/div[2]/div/div[2]/input‴ by xpath
+    keyboard ‴dec‴ 
+    keyboard ⋘ENTER⋙
+    delay 2
+    travel.click search ‴/html/body/div[2]/div/section/div[1]/div/div[1]/section/div/div/div/ody-search-form/div/div/div/div[2]/div/div/div/div[3]‴ by xpath
+    travel.click search ‴/html/body/div[2]/div/section/div[1]/div/div[1]/section/div/div/div/ody-search-form/div/div/div/div[2]/div/div/div/div[3]/div[2]/div/div[2]/input‴ by xpath
+    keyboard ‴1‴ 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴SearchBTN‴ by id
+    delay 5
+    travel.click search ‴/html/body/swift-ui/div[1]/cruise/result-container-component/div[2]/div/div/div[2]/cruise-container-component/div/cruise-item-component/div/div/cruise-sailing-component/div/div/div/table/tbody/tr/td[8]/button‴ by xpath
+    travel.click search ‴/html/body/swift-ui/div[1]/cruise/package-details-wrapper/package-details/div/div/div/div[2]/div[2]/div[2]/a‴ by xpath
+    travel.click search ‴/html/body/modal-container/div/div/guest-info/form/stepper/step/div/div/div[2]/div/div[1]/div[1]/div/div/select‴ by xpath
+    keyboard ‴1‴
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/modal-container/div/div/guest-info/form/stepper/step/div/div/div[2]/div/div[1]/div[3]/div/div/input‴ by xpath
+    keyboard ♥age
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/modal-container/div/div/guest-info/form/stepper/step/div/div/div[3]/button‴ by xpath
+    delay 15
+    travel.click search ‴/html/body/div[5]/div[3]/div[4]/div/div[2]/div[2]/form/div[3]/div[2]/div/div/div[1]/div/div/div/div[1]/div/div[3]/div/div[5]/div/a‴ by xpath
+    delay 10
+    travel.click search ‴/html/body/div[5]/div[3]/div[4]/div/div[2]/div[2]/form/div[2]/div[3]/div[1]/div[2]/div[2]/div/table/tbody/tr[1]/td[3]/a‴ by xpath
+    delay 5
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/div[1]/div/select‴ by xpath
+    keyboard ‴Mr‴
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[2]/div[2]/div/div/input‴ by xpath
+    keyboard ♥firstname
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[2]/div[4]/input‴ by xpath
+    keyboard ♥lastname
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[2]/div[5]/div/div/div[1]/select‴ by xpath
+    keyboard ‴2‴
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[2]/div[5]/div/div/div[2]/select‴ by xpath
+    keyboard ‴jan‴
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[2]/div[5]/div/div/div[3]/select‴ by xpath
+    keyboard ‴2000‴
+    keyboard ⋘ENTER⋙
+    -pan card
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[2]/div[6]/input‴ by xpath
+    keyboard ♥pancard 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[3]/div/div[1]/input‴ by xpath
+    keyboard  ♥addline 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[3]/div/div[4]/div/select‴ by xpath
+    keyboard  ♥state 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[3]/div/div[5]/input‴ by xpath
+    keyboard  ♥state 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[2]/div/div[2]/div[3]/div/div[6]/input‴ by xpath
+    keyboard  ♥pincode 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[1]/div/div[4]/input‴ by xpath
+    delay 5
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[2]/div/div[1]/div/div/div[1]/div[2]/div[1]/input‴ by xpath
+    keyboard  ♥email 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[2]/div/div[1]/div/div/div[1]/div[2]/div[2]/div/span/div/div/input‴ by xpath
+    keyboard  ♥phonenumber 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[2]/div/div[1]/div/div/div[1]/div[2]/div[3]/div/span/div/div/input‴ by xpath
+    keyboard  ♥phonenumber 
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[4]/div/div[1]/input[2]‴ by xpath
+    delay 2
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[5]/div/div[6]/div[2]/label/span‴ by xpath
+    travel.click search ‴/html/body/div[5]/div[3]/div[5]/div/div[2]/div[2]/form/div[9]/div[8]/div[5]/div/div[10]/input‴ by xpath
+end
+procedure cabs
+
+    travel.cab from ♥from to ♥to firstname ♥firstname lastname ♥lastname add ♥addline email ♥email phnnumber ♥phonenumber search 
+    travel.click search ‴/html/body/div/div/div[2]/div/div/div[2]/div/div[2]/label‴ by xpath
+    travel.click search ‴/html/body/div/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div/div/div/input‴ by xpath
+
+    keyboard ♥to
+    delay 2
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search ‴/html/body/div/div/div[2]/div/div/div[2]/p/a‴ by xpath
+    travel.click search ‴/html/body/div/div/div[2]/div/div/div[2]/div/div[1]/label‴ by xpath
+    travel.click search ‴/html/body/div/div/div[2]/div/div/div[2]/div/div[1]/div[1]/div/div/div/input‴ by xpath
+    keyboard ♥from
+    delay 2
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search ‴/html/body/div/div/div[2]/div/div/div[2]/p/a‴ by xpath
+    delay 5
+    travel.click search ‴/html/body/div/div/div[2]/div[2]/div[2]/div[1]/ul/div[1]/li/div[3]/div/a/span‴ by xpath
+    travel.click search ‴/html/body/div/div/div[2]/div/div[2]/div/div[1]/div[4]/div/div[1]/div/input‴ by xpath
+    keyboard ♥addline
+    delay 2
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search ‴/html/body/div/div/div[2]/div/div[2]/div/div[1]/div[4]/div/div[2]/div[1]/div[1]/div[1]/input‴ by xpath
+    delay 1
+
+    keyboard ♥firstname
+    delay 2
+    travel.click search ‴/html/body/div/div/div[2]/div/div[2]/div/div[1]/div[4]/div/div[2]/div[1]/div[1]/div[2]/input‴ by xpath
+    keyboard ♥email
+    travel.click search ‴/html/body/div/div/div[2]/div/div[2]/div/div[1]/div[4]/div/div[2]/div[1]/div[1]/div[3]/div/input[2]‴ by xpath
+    keyboard ♥phonenumber
+    travel.click search ‴/html/body/div/div/div[2]/div/div[2]/div/div[2]/div[3]/div[1]/a‴ by xpath
+    delay 5
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/ul/li[2]/a/span[2]‴ by xpath
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[1]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:number⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[3]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:name⟧
+
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[4]/span[1]/select‴ by xpath
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search  ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[4]/span[2]/select‴ by xpath
+    keyboard ‴2023‴
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[4]/div/span[1]/input‴ by xpath
+    keyboard ♥credential⟦card:cvv⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[6]/div[1]/p[2]/select‴ by xpath
+    keyboard india
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[6]/div[2]/p[2]/textarea‴ by xpath
+    keyboard ♥credential⟦card:add⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[6]/div[3]/span[1]/input‴ by xpath
+    
+    keyboard ♥credential⟦card:city⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[6]/div[3]/span[2]/input‴ by xpath
+        
+    keyboard ♥credential⟦card:pincode⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[11]/div/div[6]/div[3]/span[3]/input‴ by xpath
+    keyboard ♥credential⟦card:state⟧
+    
+    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[12]/div[2]/p[1]/button[3]/span‴ by xpath
+    
+    dialog message ‴Congratulations !!!! Your ticket from ♥from to ♥to is booked !! Happy and safe journey‴
+    
+
+end
+procedure hotels
+    travel.hotel city ‴Delhi‴ firstname ‴Rishabh‴ lastname ‴Mishra‴ search
+    keyboard ⋘ESC⋙
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div[2]/div/p/button‴ by xpath
+    delay 2
+    travel.click search ‴/html/body/div[1]/div/div[3]/div[1]/div[3]/div[2]/div/div/div[2]/a/div/div[1]/div[2]/div[1]‴ by xpath
+    delay 2
+    travel.click search ‴/html/body/div[1]/div/div[3]/div[1]/div/div[2]/div[2]/div/div/div[3]/div[1]/div/p/span/a‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[3]/div/div[2]/div/div[1]/div[5]/div/form/div[1]/div[2]/div/input‴ by xpath
+    keyboard ♥firstname
+    travel.click search ‴/html/body/div[1]/div/div[3]/div/div[2]/div/div[1]/div[5]/div/form/div[1]/div[3]/div/input‴ by xpath
+    keyboard ♥lastname
+    travel.click search ‴/html/body/div[1]/div/div[3]/div/div[2]/div/div[1]/div[5]/div/form/div[2]/div[1]/div/div[1]/div/div/input‴ by xpath
+    keyboard ♥email
+    travel.click search ‴/html/body/div[1]/div/div[3]/div/div[2]/div/div[1]/div[5]/div/form/div[2]/div[1]/div/div[2]/div/div[1]/div[2]/input‴ by xpath
+    keyboard ♥phonenumber
+    travel.click search ‴/html/body/div[1]/div/div[3]/div/div[2]/div/div[2]/div[1]/div/a‴ by xpath
+    delay 6
+    -------------------------------------------------------------------------------------------------
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[1]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:number⟧
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[2]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:name⟧
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[5]/span[1]/select‴ by xpath
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[5]/span[2]/select‴ by xpath
+    keyboard ‴2023‴
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[5]/span[3]/input‴ by xpath
+    keyboard ♥credential⟦card:cvv⟧
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[7]/div[1]/p[2]/textarea‴ by xpath
+    keyboard ♥credential⟦card:add⟧
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[7]/div[2]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:pincode⟧
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[7]/div[3]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:city⟧
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[7]/div[4]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:state⟧
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[2]/div[1]/div[7]/div[7]/p[2]/select‴ by xpath
+    keyboard india
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[6]/div[3]/div[5]/form[1]/div/div[2]/div[3]/div[1]/div‴ by xpath
+    dialog ‴Congratulations your Hotel is booked successfully. Have a safe stay !!‴
+    
+-    travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/ul/li[2]/a/span[2]‴ by xpath
+ -   travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[1]/p[2]/input‴ by xpath
+  -  keyboard ♥credential⟦card:number⟧
+   - travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[3]/p[2]/input‴ by xpath
+   - keyboard ♥credential⟦card:name⟧
+   - travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/span[1]/select‴ by xpath
+   - keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    -travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/span[2]/select‴ by xpath
+    -keyboard ‴2023‴
+    -keyboard ⋘ENTER⋙
+    -travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[4]/div/span[1]/input‴ by xpath
+    -keyboard ♥credential⟦card:cvv⟧
+    -travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[1]/p[2]/select‴ by xpath
+    -keyboard india
+    -keyboard ⋘ENTER⋙
+    -travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[2]/p[2]/textarea‴ by xpath
+    -keyboard ♥credential⟦card:add⟧
+    -travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[1]/input‴ by xpath
+    -keyboard ♥credential⟦card:city⟧
+    -travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[2]/input‴ by xpath
+    -keyboard ♥credential⟦card:pincode⟧
+    -travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[15]/div/div[6]/div[3]/span[3]/input‴ by xpath
+    -keyboard ♥credential⟦card:state⟧
+    -travel.click search ‴/html/body/div[4]/div[3]/div[3]/div[2]/div/form[1]/div/div/div[16]/div[2]/p[1]/button[3]/span‴ by xpath
+    -dialog ‴Congratulations your Hotel is booked successfully. Have a safe stay !!‴
+end
+   
+procedure trains
+    travel.train search
+
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div[2]/label‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/input‴ by xpath
+    keyboard ♥to
+    delay 2
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    delay 2
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div[1]/label‴ by xpath
+    travel.click search ‴/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div[1]/div[1]/div/div/div/input‴ by xpath
+    keyboard ♥from
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    delay 2
+    travel.click search ‴primaryBtn‴ by class
+    delay 5
+    travel.click search ‴/html/body/div[1]/div/div[2]/div[2]/div/div/ul/li[1]/div/div[2]/div/ul/li[2]‴ by xpath
+    travel.click search ‴IRCTCUserName‴ by id
+
+    keyboard ♥credential⟦irctc:id⟧
+    delay 1
+    keyboard ⋘ENTER⋙
+    delay 3
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[2]/div[2]/ul/li/div[3]/form/div[1]/input‴ by xpath
+    keyboard ♥firstname
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[2]/div[2]/ul/li/div[3]/form/div[2]/input‴ by xpath
+    keyboard ♥age
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[2]/div[2]/ul/li/div[3]/form/div[3]/div/p‴ by xpath
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[2]/div[2]/ul/li/div[3]/form/div[3]/div/ul/li[1]‴ by xpath
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[2]/div[2]/ul/li/div[1]/span/span‴ by xpath
+
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[4]/div[1]/div/form/div[1]/div/div/input‴ by xpath
+    keyboard ♥firstname
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[4]/div[1]/div/form/div[2]/div/div/input‴ by xpath
+    keyboard ♥email
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[4]/div[1]/div/form/div[3]/div/div/input‴ by xpath
+    keyboard ♥phonenumber
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[5]/div/form/div[1]/div/div/input‴ by xpath
+    keyboard ♥addline
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[5]/div/form/div[4]/div/div/input‴ by xpath
+    keyboard ♥pincode
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[1]/div[7]/div/div/ul/li[2]/div/span/label‴ by xpath
+    travel.click search ‴/html/body/div/div/div[2]/div/div/section[2]/div/div/div[1]/a‴ by xpath
+    
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/ul/li[2]/a/span[2]‴ by xpath
+    
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[1]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:number⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[3]/p[2]/input‴ by xpath
+    keyboard ♥credential⟦card:name⟧
+
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[4]/span[1]/select‴ by xpath
+    keyboard ‴⋘DOWN⋙⋘ENTER⋙‴
+    travel.click search  ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[4]/span[2]/select‴ by xpath
+    keyboard ‴2023‴
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[4]/div/span[1]/input‴ by xpath
+    keyboard ♥credential⟦card:cvv⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[6]/div[1]/p[2]/select‴ by xpath
+    keyboard india
+    keyboard ⋘ENTER⋙
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[6]/div[2]/p[2]/textarea‴ by xpath
+    keyboard ♥credential⟦card:add⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[6]/div[3]/span[1]/input‴ by xpath
+    
+    keyboard ♥credential⟦card:city⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[6]/div[3]/span[2]/input‴ by xpath
+        
+    keyboard ♥credential⟦card:pincode⟧
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[14]/div/div[6]/div[3]/span[3]/input‴ by xpath
+    keyboard ♥credential⟦card:state⟧
+    
+    travel.click search ‴/html/body/div[4]/div[3]/div[2]/div[4]/div[2]/div/form[1]/div/div/div[15]/div[2]/p[1]/button[3]‴ by xpath
+    
+    dialog message ‴Congratulations !!!! Your ticket from ♥from to ♥to is booked !! Happy and safe journey‴
+    
+end
+
+
+
+
