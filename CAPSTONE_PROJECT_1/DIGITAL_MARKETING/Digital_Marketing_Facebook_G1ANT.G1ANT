@@ -1,0 +1,102 @@
+addon facebook version 1.0.0.0
+addon xlsx version 4.103.0.0
+addon core version 4.106.0.0
+addon language version 4.105.0.0
+
+-Opening Excel File
+xlsx.open path ‴C:\Users\MANEESH\Documents\RPA.xlsx‴
+
+-Opening Facebook
+facebook.open
+
+-Facebook Login
+facebook.login phone ♥credential⟦Facebook:mobile⟧ pword ♥credential⟦Facebook:pass⟧ search
+delay 12
+
+-Opening G1ANT  Page
+facebook.pageg1ant search
+
+---------------------------------------------------
+
+
+delay 10
+xlsx.getvalue row 20 colindex 1 result ♥name
+
+delay 2
+-Sending Request 
+facebook.sendRequest customer ♥name search
+delay 6
+mouse.click ⟦point⟧1048⫽583  type ‴press‴
+delay 5
+mouse.click ⟦point⟧974⫽966  type ‴press‴
+
+
+delay 10
+
+-------------------------------------------------------
+delay 2
+xlsx.getvalue row 25 colindex 1 result ♥post
+
+
+facebook.click search ‴/html/body/div[1]/div/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div[4]/div[2]/div/div[2]/div[1]/div/div/div[1]/div[2]/div[1]/div/span‴ by xpath
+delay 9
+keyboard text ‴♥post‴
+delay 3
+
+facebook.click search ‴/html/body/div[1]/div/div[1]/div[1]/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div[2]/div[3]/div[4]/div‴ by xpath
+
+delay 10
+----------------------------------------------------------
+
+-Opening Message Page
+facebook.message search
+delay 7
+
+-Reading Value
+xlsx.getvalue row 3 colindex 1 result ♥q1
+xlsx.getvalue row 4 colindex 1 result ♥q2
+xlsx.getvalue row 5 colindex 1 result ♥q3
+xlsx.getvalue row 6 colindex 1 result ♥q4
+xlsx.close
+
+-asking Question 
+
+keyboard ♥q1
+keyboard ⋘ENTER⋙
+delay 5
+keyboard ♥q2
+keyboard ⋘ENTER⋙
+delay 5
+keyboard ♥q3
+keyboard ⋘ENTER⋙
+delay 5
+keyboard ♥q4
+keyboard ⋘ENTER⋙
+
+delay 5
+facebook.click search ‴/html/body/div[1]/div/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div[2]/div/div[2]/a/div[1]/div/span‴ by xpath
+delay 2
+mouse.click ⟦point⟧1162⫽471 type ‴press‴
+
+delay 10
+
+
+-------------------------------------------------------
+
+-Opening Advertisement page
+
+mouse.click ⟦point⟧834⫽428 type ‴press‴
+delay 8
+mouse.click ⟦point⟧1071⫽479 type ‴press‴
+delay 8
+facebook.click search ‴/html/body/div[1]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[3]/div/div[4]/div/div/div/div/div/div[2]/div/div[1]/div/span‴ by xpath
+delay 13
+
+
+mouse.click ⟦point⟧386⫽917 type ‴press‴
+delay 3
+mouse.click ⟦point⟧893⫽891 type ‴press‴
+delay 3
+
+
+
